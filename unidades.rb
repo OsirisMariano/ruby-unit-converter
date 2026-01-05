@@ -1,19 +1,39 @@
 module Unidades
-  # Nossa tabela de verdade: Tudo em relação ao METRO
-  COMPRIMENTO = {
+  DATA = {
+    COMPRIMENTO: {
     "1" => { nome: "Quilômetro",  fator: 0.001},
     "2" => { nome: "Metro",       fator: 1.0},
     "3" => { nome: "Centímetros", fator: 100.0},
     "4" => { nome: "Milímetros",  fator: 1000.0}
+  },
+
+    MASSA: {
+      "5" => {nome: "Quilograma", fator: 1.0},
+      "6" => {nome: "Grama",      fator: 1000.0},
+      "7" => {nome: "Libra",     fator: 2.20462}
+    }
+
   }
+  
+  def self.listar_todas
+    DATA.each do |categoria, unidades|
+      puts "\n--- #{categoria.upcase}---"
+      unidades.each { |id, info| puts "[#{id}] #{info[:nome]}"}
+    end
+  end
 
-  def self.converter(valor, de_id, para_id)
-    # 1. Converter a origem para a base (Metro)
-    valor_em_metros = valor / COMPRIMENTO[de_id][:fator]
+  def self.buscar_unidade(id)
+    DATA.each do |_, unidades|
+      return unidades[id] if unidades[id]
+    end
+    nil
+  end
 
-    # 2. Converte da base para o destino final
-    resultado = valor_em_metros * COMPRIMENTO[para_id][:fator]
+  def self.converter(valor, id_de, id_para)
+    unidade_de    = buscar_unidade(id_de)
+    unidade_para  = buscar_unidade(id_para)
 
-    return resultado
+    valor_base = valor / unidade_de[:fator]
+    valor_base * unidade_para[:fator]
   end
 end
