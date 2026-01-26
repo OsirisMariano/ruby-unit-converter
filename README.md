@@ -1,24 +1,26 @@
 # 🔄 Unit Converter - Ruby Fundamentals
-![Progresso do Projeto](https://geps.dev/progress/50)
 
-Este é um conversor de unidades simples e eficiente desenvolvido em **Ruby**. O projeto faz parte da minha jornada de estudos (365 Days of Code) e foca na aplicação de lógica de programação, métodos e estruturas de controle da linguagem Ruby.
+Um conversor de unidades robusto e escalável desenvolvido em **Ruby**. Este projeto faz parte da jornada *365 Days of Code*, aplicando conceitos de lógica de programação, funções anônimas e manipulação de fluxos de dados via CLI.
 
 ## 🚀 Funcionalidades
 
-O sistema permite converter diferentes tipos de medidas:
-* **Comprimento:** Metros para Quilômetros, Centímetros e Milímetros.
-* **Massa:** Quilogramas para Gramas e Libras.
-* **Temperatura:** Celsius para Fahrenheit e Kelvin.
+O sistema permite a conversão precisa entre diversas grandezas:
+* **Comprimento:** Quilômetros, Metros, Centímetros e Milímetros.
+* **Massa:** Quilogramas, Gramas e Libras.
+* **Temperatura:** Cálculos dinâmicos entre Celsius, Fahrenheit e Kelvin.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Diferenciais Técnicos
 
-* **Ruby:** Linguagem de programação principal.
-* **Git/GitHub:** Para controle de versão e hospedagem.
+Diferente de conversores baseados apenas em fatores fixos, este projeto utiliza uma arquitetura flexível para lidar com conversões não-lineares:
+
+* **Lógica de Lambdas (Procs):** Implementação de fórmulas matemáticas complexas para o cálculo de temperaturas (Celsius/Fahrenheit/Kelvin), onde o simples uso de um fator multiplicativo não é suficiente.
+* **Arquitetura Desacoplada:** Separação clara entre a base de dados de unidades (`unidades.rb`) e a interface de interação com o usuário (`main.rb`).
+* **Validação de Entrada:** Tratamento de erros via Regex para garantir que apenas valores numéricos válidos (incluindo negativos para temperatura) sejam processados.
 
 ## 🏁 Como Executar
 
-Certifique-se de ter o Ruby instalado em sua máquina.
+Certifique-se de ter o **Ruby** instalado em seu ambiente.
 
-1. Clone este repositório:
+1. Clone o repositório:
    ```bash
    git clone [https://github.com/OsirisMariano/ruby-unit-converter.git](https://github.com/OsirisMariano/ruby-unit-converter.git)
